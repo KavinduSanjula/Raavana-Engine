@@ -9,7 +9,7 @@ cppdialect "C++17"
 startproject "Sandbox"
 
 filter "system:Windows"
-systemversion "latest"
+   systemversion "latest"
 
 
 
@@ -25,16 +25,18 @@ project "Sandbox"
    includedirs {  "RaavanaEngine/src"}
    links {"RaavanaEngine"}
 
-   files { "Sandbox/src/**.h", "Sandbox/src/**.cpp" }
+   files {  "Sandbox/src/**.h",
+            "Sandbox/src/**.cpp" 
+         }
 
-   defines { "IMPORT_DLL"}
+   defines { "RE_IMPORT_DLL"}
 
    filter "configurations:Debug"
-      defines { "DEBUG" }
+      defines { "RE_DEBUG" }
       symbols "On"
 
    filter "configurations:Release"
-      defines { "RELEASE" }
+      defines { "RE_RELEASE" }
       optimize "On"
 
 
@@ -54,18 +56,35 @@ project "RaavanaEngine"
                   "RaavanaEngine/vendor/GLEW/include"
                }
 
-   files { "RaavanaEngine/src/**.h", "RaavanaEngine/src/**.cpp" }
+   libdirs {   "RaavanaEngine/vendor/GLFW/lib-vc2019",
+               "RaavanaEngine/vendor/GLEW/lib/x64"
+           }
 
-   defines {"GLEW_STATIC", "EXPORT_DLL"}
+   links {  "glfw3.lib",
+            "glew32s.lib",
+            "opengl32.lib"
+         }
+
+   files {  "RaavanaEngine/src/**.h",
+            "RaavanaEngine/src/**.cpp",
+            "RaavanaEngine/vendor/stb-image/**.h",
+            "RaavanaEngine/vendor/stb-image/**.cpp",
+            "RaavanaEngine/vendor/imgui/**.h",
+            "RaavanaEngine/vendor/imgui/**.cpp"
+         }
+
+   removefiles{   "RaavanaEngine/vendor/imgui/main.cpp"  }
+
+   defines {"GLEW_STATIC", "RE_EXPORT_DLL"}
    
    postbuildcommands { "{COPY} %{cfg.buildtarget.relpath} ../bin/%{cfg.buildcfg}/Sandbox" }
 
    filter "configurations:Debug"
-      defines { "DEBUG" }
+      defines { "RE_DEBUG" }
       symbols "On"
 
    filter "configurations:Release"
-      defines { "RELEASE" }
+      defines { "RE_RELEASE" }
       optimize "On"
 
 
