@@ -48,6 +48,9 @@
     <ClInclude Include="vendor\stb-image\stb_image.h">
       <Filter>vendor\stb-image</Filter>
     </ClInclude>
+    <ClInclude Include="src\RE\core.h" />
+    <ClInclude Include="src\RE\Application.h" />
+    <ClInclude Include="src\RE\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vendor\imgui\imgui.cpp">
@@ -74,5 +77,6 @@
     <ClCompile Include="vendor\stb-image\stb_image.cpp">
       <Filter>vendor\stb-image</Filter>
     </ClCompile>
+    <ClCompile Include="src\RE\Application.cpp" />
   </ItemGroup>
 </Project>

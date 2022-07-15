@@ -102,6 +102,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\RaavanaEngine.h" />
+    <ClInclude Include="src\RE\Application.h" />
+    <ClInclude Include="src\RE\core.h" />
+    <ClInclude Include="src\RE\EntryPoint.h" />
     <ClInclude Include="vendor\imgui\imconfig.h" />
     <ClInclude Include="vendor\imgui\imgui.h" />
     <ClInclude Include="vendor\imgui\imgui_impl_glfw.h" />
@@ -114,6 +117,7 @@
     <ClInclude Include="vendor\stb-image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\RE\Application.cpp" />
     <ClCompile Include="vendor\imgui\imgui.cpp" />
     <ClCompile Include="vendor\imgui\imgui_demo.cpp" />
     <ClCompile Include="vendor\imgui\imgui_draw.cpp" />
