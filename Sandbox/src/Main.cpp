@@ -3,7 +3,7 @@
 class Sandbox : public RE::Application {
 public:
 	Sandbox() {
-
+		std::cout << m_Window->GetTitle() << std::endl;
 	}
 
 	~Sandbox() {

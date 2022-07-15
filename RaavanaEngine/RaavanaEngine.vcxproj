@@ -105,6 +105,8 @@
     <ClInclude Include="src\RE\Application.h" />
     <ClInclude Include="src\RE\core.h" />
     <ClInclude Include="src\RE\EntryPoint.h" />
+    <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
+    <ClInclude Include="src\RE\Window.h" />
     <ClInclude Include="vendor\imgui\imconfig.h" />
     <ClInclude Include="vendor\imgui\imgui.h" />
     <ClInclude Include="vendor\imgui\imgui_impl_glfw.h" />
@@ -118,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp" />
+    <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp" />
     <ClCompile Include="vendor\imgui\imgui.cpp" />
     <ClCompile Include="vendor\imgui\imgui_demo.cpp" />
     <ClCompile Include="vendor\imgui\imgui_draw.cpp" />

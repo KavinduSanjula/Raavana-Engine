@@ -51,6 +51,8 @@
     <ClInclude Include="src\RE\core.h" />
     <ClInclude Include="src\RE\Application.h" />
     <ClInclude Include="src\RE\EntryPoint.h" />
+    <ClInclude Include="src\RE\Window.h" />
+    <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vendor\imgui\imgui.cpp">
@@ -78,5 +80,6 @@
       <Filter>vendor\stb-image</Filter>
     </ClCompile>
     <ClCompile Include="src\RE\Application.cpp" />
+    <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
