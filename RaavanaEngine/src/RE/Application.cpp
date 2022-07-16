@@ -1,3 +1,4 @@
+#include "repch.h"
 #include "Application.h"
 
 
@@ -17,8 +18,10 @@ namespace RE {
 	{
 		if (m_Window->HasError()) return;
 		while (!m_Window->ShouldClose()) {
+
 			m_Window->Update();
 			Update();
+
 		}
 	}
 
