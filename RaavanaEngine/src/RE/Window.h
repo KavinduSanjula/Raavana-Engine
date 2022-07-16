@@ -14,6 +14,8 @@ namespace RE {
 		virtual void Update() = 0;
 		virtual bool ShouldClose() const = 0;
 
+		virtual void* GetNativeWindow() const = 0;
+
 		inline virtual std::string GetTitle() const { return m_Title; }
 		inline virtual int GetWidth() const { return m_Width; }
 		inline virtual int GetHeight()const { return m_Height; }

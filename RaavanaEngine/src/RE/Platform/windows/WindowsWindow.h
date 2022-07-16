@@ -3,7 +3,7 @@
 #include "GL/glew.h"
 #include <GLFW/glfw3.h>
 
-#include "RE/Window.h"
+#include "Window.h"
 
 namespace RE {
 
@@ -15,6 +15,7 @@ namespace RE {
 
 
 		void Update() override;
+		void* GetNativeWindow() const override;
 		bool ShouldClose() const override;
 
 		static Window* Create(const std::string& title, int width, int height);

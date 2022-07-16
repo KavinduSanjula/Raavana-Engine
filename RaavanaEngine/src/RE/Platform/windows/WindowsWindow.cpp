@@ -1,4 +1,6 @@
+#include "repch.h"
 #include "WindowsWindow.h"
+
 
 namespace RE {
 
@@ -41,6 +43,11 @@ namespace RE {
 	{
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
+	}
+
+	void* WindowsWindow::GetNativeWindow() const
+	{
+		return m_Window;
 	}
 
 	bool WindowsWindow::ShouldClose() const
