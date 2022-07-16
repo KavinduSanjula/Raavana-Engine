@@ -4,6 +4,21 @@
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\RE">
+      <UniqueIdentifier>{D34A661C-BFEC-90F2-A8A7-A44694E81743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RE\Platform">
+      <UniqueIdentifier>{87647D6D-F3EF-EA31-FC00-6E26680B4732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RE\Platform\opengl">
+      <UniqueIdentifier>{3BE8BD39-27E2-E68B-104F-7D9CFCE74CF8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RE\Platform\windows">
+      <UniqueIdentifier>{E13D96C9-4D75-DE60-567F-4284C235055A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RE\Renderer">
+      <UniqueIdentifier>{D96B5A48-45F7-C70C-4E08-4B01BA12240D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
@@ -15,6 +30,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\RE\Application.h">
+      <Filter>src\RE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\EntryPoint.h">
+      <Filter>src\RE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\opengl\opengl_VertexBuffer.h">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h">
+      <Filter>src\RE\Platform\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Renderer\VertexBuffer.h">
+      <Filter>src\RE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Window.h">
+      <Filter>src\RE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\core.h">
+      <Filter>src\RE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\repch.h">
+      <Filter>src\RE</Filter>
+    </ClInclude>
     <ClInclude Include="src\RaavanaEngine.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -48,13 +87,20 @@
     <ClInclude Include="vendor\stb-image\stb_image.h">
       <Filter>vendor\stb-image</Filter>
     </ClInclude>
-    <ClInclude Include="src\RE\core.h" />
-    <ClInclude Include="src\RE\Application.h" />
-    <ClInclude Include="src\RE\EntryPoint.h" />
-    <ClInclude Include="src\RE\Window.h" />
-    <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\RE\Application.cpp">
+      <Filter>src\RE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\opengl\opengl_VertexBuffer.cpp">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp">
+      <Filter>src\RE\Platform\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\repch.cpp">
+      <Filter>src\RE</Filter>
+    </ClCompile>
     <ClCompile Include="vendor\imgui\imgui.cpp">
       <Filter>vendor\imgui</Filter>
     </ClCompile>
@@ -79,7 +125,5 @@
     <ClCompile Include="vendor\stb-image\stb_image.cpp">
       <Filter>vendor\stb-image</Filter>
     </ClCompile>
-    <ClCompile Include="src\RE\Application.cpp" />
-    <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
