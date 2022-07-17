@@ -1,6 +1,7 @@
 #include "repch.h"
 #include "WindowsWindow.h"
 
+#include "Event/KeyboardEvent.h"
 
 namespace RE {
 
@@ -31,6 +32,9 @@ namespace RE {
 
 		glfwMakeContextCurrent(m_Window);
 		glewInit();
+
+		glfwSetWindowUserPointer(m_Window, this);
+		glfwSetKeyCallback(m_Window, key_callback);
 			
 	}
 
@@ -53,6 +57,30 @@ namespace RE {
 	bool WindowsWindow::ShouldClose() const
 	{
 		return glfwWindowShouldClose(m_Window);
+	}
+
+	void WindowsWindow::SetEventCallback(std::function<void(Event*)> callback)
+	{
+		m_EventCallback = callback;
+	}
+
+	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+
+		auto win = (WindowsWindow*)glfwGetWindowUserPointer(window);
+		if (!win->m_EventCallback) return;
+
+		if (action == GLFW_PRESS) {
+			Event* e = new KeyPressed(key, 0);
+			win->m_EventCallback(e);
+		}
+		else if (action == GLFW_REPEAT) {
+			Event* e = new KeyPressed(key, 1);
+			win->m_EventCallback(e);
+		}
+		else if (action == GLFW_RELEASE) {
+			Event* e = new KeyReleased(key);
+			win->m_EventCallback(e);
+		}
 	}
 
 }

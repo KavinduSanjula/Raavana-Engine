@@ -1,8 +1,10 @@
 #pragma once
-
 #include <string>
+#include <functional>
+
 
 #include "RE/core.h"
+#include "Event/Event.h"
 
 namespace RE {
 
@@ -13,6 +15,8 @@ namespace RE {
 
 		virtual void Update() = 0;
 		virtual bool ShouldClose() const = 0;
+
+		virtual void SetEventCallback(std::function<void(Event*)> callback) = 0;
 
 		virtual void* GetNativeWindow() const = 0;
 

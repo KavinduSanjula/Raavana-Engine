@@ -18,6 +18,26 @@ public:
 
 	}
 
+	void OnEvent(RE::Event* e) override{
+		if (e->GetObjectType() == RE::EventType::KeyPressed) {
+
+			auto ev = *((RE::KeyPressed*)e);
+			if (ev.GetRepeatCount() > 0) {
+				std::cout << "Repeating " << ev.GetKey() << std::endl;
+			}
+			else {
+				std::cout << "Pressed " << ev.GetKey() << std::endl;
+			}
+		}
+		if (e->GetObjectType() == RE::EventType::KeyReleased) {
+
+			auto ev = *((RE::KeyReleased*)e);
+			std::cout << "Key released " << ev.GetKey() << std::endl;
+		}
+
+		delete e;
+	}
+
 };
 
 RE::Application* CreateApplication() {

@@ -4,10 +4,14 @@
 namespace RE {
 	
 
-	KeyPressed::KeyPressed(int key, int mode)
-		:Event("KeyPressed",EventType::KeyPressed), m_KeyCode(key), m_Mode(mode)
+	KeyPressed::KeyPressed(int key, int repeat_count)
+		:Event("KeyPressed",EventType::KeyPressed), m_KeyCode(key), m_RepeatCount(repeat_count)
 	{
-		std::cout << "KeyPressed " << key << std::endl;
+	}
+
+	KeyReleased::KeyReleased(int key)
+		: Event("KeyReleased", EventType::KeyReleased), m_KeyCode(key)
+	{
 	}
 
 }

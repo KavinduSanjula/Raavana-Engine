@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+
 #include "core.h"
 
 namespace RE {

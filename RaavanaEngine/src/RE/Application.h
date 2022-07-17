@@ -2,6 +2,7 @@
 
 #include "core.h"
 #include "Window.h"
+#include "Event/Event.h"
 
 namespace RE {
 
@@ -11,6 +12,7 @@ namespace RE {
 		virtual ~Application();
 
 		void Run();
+		virtual void OnEvent(Event* e);
 		virtual void Update() = 0;
 
 	protected:
