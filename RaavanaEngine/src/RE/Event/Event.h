@@ -5,9 +5,6 @@
 
 namespace RE {
 
-#define CREATE_STATIC(name,type) inline static std::string GetStaticName() { return (name); }\
-								 inline static EventType GetStaticType() { return (type); }
-
 	enum class EventType {
 		None = 0,
 		Event,
@@ -25,9 +22,6 @@ namespace RE {
 
 		inline virtual std::string GetObjectName() const { return m_Name; }
 		inline virtual EventType GetObjectType() const { return m_Type; }
-
-		inline static std::string GetStaticName() { return "Event"; }
-		inline static EventType GetStaticType() { return EventType::Event; }
 
 	protected:
 		std::string m_Name;

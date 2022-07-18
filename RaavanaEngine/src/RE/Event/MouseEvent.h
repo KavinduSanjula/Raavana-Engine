@@ -12,7 +12,6 @@ namespace RE {
 
 		inline std::tuple<float, float> GetMousePosition() const { return { m_Mx, m_My }; }
 
-		CREATE_STATIC("MouseMoved", EventType::MouseMoved)
 
 	private:
 		float m_Mx;

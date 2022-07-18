@@ -13,7 +13,6 @@ namespace RE {
 		inline int GetKey() const { return m_KeyCode; }
 		inline int GetRepeatCount() const { return m_RepeatCount; }
 
-		CREATE_STATIC("KeyPressed", EventType::KeyPressed)
 
 	private:
 		int m_KeyCode;
@@ -26,8 +25,6 @@ namespace RE {
 		virtual ~KeyReleased() {}
 
 		inline int GetKey() const { return m_KeyCode; }
-
-		CREATE_STATIC("KeyReleased", EventType::KeyReleased)
 
 	private:
 		int m_KeyCode;
