@@ -7,7 +7,8 @@ public:
 	Sandbox() {
 		std::cout << m_Window->GetTitle() << std::endl;
 		float verts[] = { 0.5f,0.5f };
-		auto vb = RE::VertexBuffer::Create(verts, 2 * sizeof(float));
+		auto vb = RE::VertexBuffer::Create(nullptr, 2 * sizeof(float));
+		vb->SetData(verts, 2 * sizeof(float));
 	}
 
 	~Sandbox() {
@@ -18,26 +19,9 @@ public:
 
 	}
 
-	void OnEvent(RE::Event* e) override{
-		if (e->GetObjectType() == RE::EventType::KeyPressed) {
-
-			auto ev = *((RE::KeyPressed*)e);
-			if (ev.GetRepeatCount() > 0) {
-				std::cout << "Repeating " << ev.GetKey() << std::endl;
-			}
-			else {
-				std::cout << "Pressed " << ev.GetKey() << std::endl;
-			}
-		}
-		if (e->GetObjectType() == RE::EventType::KeyReleased) {
-
-			auto ev = *((RE::KeyReleased*)e);
-			std::cout << "Key released " << ev.GetKey() << std::endl;
-		}
-
-		delete e;
+	void OnKeyPressed(RE::KeyPressed* e) override{
+		std::cout << "Key Pressed " << e->GetKey() << " " << e->GetRepeatCount() << std::endl;
 	}
-
 };
 
 RE::Application* CreateApplication() {

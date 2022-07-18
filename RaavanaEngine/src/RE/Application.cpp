@@ -30,7 +30,27 @@ namespace RE {
 
 	void Application::OnEvent(Event* e)
 	{
+		//dispatch event to functions
+		switch (e->GetObjectType()) {
+		case EventType::KeyPressed:
+		{
+			auto ev = (KeyPressed*)e;
+			OnKeyPressed(ev);
+			break;
+		}
+
+		case EventType::KeyReleased:
+		{
+			auto ev = (KeyReleased*)e;
+			OnKeyReleased(ev);
+			break;
+		}
+		}
+
 		delete e;
 	}
+
+	void Application::OnKeyPressed(KeyPressed* e){}
+	void Application::OnKeyReleased(KeyReleased* e){}
 
 }
