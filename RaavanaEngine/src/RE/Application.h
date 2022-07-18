@@ -16,8 +16,6 @@ namespace RE {
 		virtual ~Application();
 
 		void Run();
-		void OnEvent(Event* e);
-
 		virtual void Update() = 0;
 
 		virtual void OnWindowClosed(WindowClosed* e);
@@ -29,6 +27,9 @@ namespace RE {
 		virtual void OnMouseMoved(MouseMoved* e);
 		virtual void OnMousePressed(MouseButtonPressed* e);
 		virtual void OnMouseReleased(MouseButtonReleased* e);
+
+	private:
+		void OnEvent(Event* e);
 
 	protected:
 		Window* m_Window;
