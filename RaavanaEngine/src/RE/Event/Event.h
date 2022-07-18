@@ -10,8 +10,9 @@ namespace RE {
 
 	enum class EventType {
 		None = 0,
-		_Event,
+		Event,
 		KeyPressed, KeyReleased,
+		MouseMoved,
 		MouseButtonPressed, MouseButtonReleased,
 		WindowClosed, WindowResized
 	};
@@ -26,7 +27,7 @@ namespace RE {
 		inline virtual EventType GetObjectType() const { return m_Type; }
 
 		inline static std::string GetStaticName() { return "Event"; }
-		inline static EventType GetStaticType() { return EventType::_Event; }
+		inline static EventType GetStaticType() { return EventType::Event; }
 
 	protected:
 		std::string m_Name;

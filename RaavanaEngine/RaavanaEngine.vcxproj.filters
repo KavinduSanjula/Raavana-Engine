@@ -89,6 +89,8 @@
     </ClInclude>
     <ClInclude Include="src\RE\Event\Event.h" />
     <ClInclude Include="src\RE\Event\KeyboardEvent.h" />
+    <ClInclude Include="src\RE\Event\ApplicationEvent.h" />
+    <ClInclude Include="src\RE\Event\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp">
@@ -129,5 +131,7 @@
     </ClCompile>
     <ClCompile Include="src\RE\Event\Event.cpp" />
     <ClCompile Include="src\RE\Event\KeyboardEvent.cpp" />
+    <ClCompile Include="src\RE\Event\ApplicationEvent.cpp" />
+    <ClCompile Include="src\RE\Event\MouseEvent.cpp" />
   </ItemGroup>
 </Project>

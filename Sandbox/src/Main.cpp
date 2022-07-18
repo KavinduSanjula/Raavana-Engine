@@ -19,8 +19,9 @@ public:
 
 	}
 
-	void OnKeyPressed(RE::KeyPressed* e) override{
-		std::cout << "Key Pressed " << e->GetKey() << " " << e->GetRepeatCount() << std::endl;
+	void OnWindowResized(RE::WindowResized* e) override {
+		auto [width, height] = e->GetSize();
+		std::cout << width << ", " << height << std::endl;
 	}
 };
 

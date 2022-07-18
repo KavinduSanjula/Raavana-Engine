@@ -103,8 +103,10 @@
   <ItemGroup>
     <ClInclude Include="src\RE\Application.h" />
     <ClInclude Include="src\RE\EntryPoint.h" />
+    <ClInclude Include="src\RE\Event\ApplicationEvent.h" />
     <ClInclude Include="src\RE\Event\Event.h" />
     <ClInclude Include="src\RE\Event\KeyboardEvent.h" />
+    <ClInclude Include="src\RE\Event\MouseEvent.h" />
     <ClInclude Include="src\RE\Platform\opengl\opengl_VertexBuffer.h" />
     <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
     <ClInclude Include="src\RE\Renderer\VertexBuffer.h" />
@@ -125,8 +127,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp" />
+    <ClCompile Include="src\RE\Event\ApplicationEvent.cpp" />
     <ClCompile Include="src\RE\Event\Event.cpp" />
     <ClCompile Include="src\RE\Event\KeyboardEvent.cpp" />
+    <ClCompile Include="src\RE\Event\MouseEvent.cpp" />
     <ClCompile Include="src\RE\Platform\opengl\opengl_VertexBuffer.cpp" />
     <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp" />
     <ClCompile Include="src\RE\repch.cpp" />

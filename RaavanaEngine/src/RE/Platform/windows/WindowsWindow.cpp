@@ -2,6 +2,8 @@
 #include "WindowsWindow.h"
 
 #include "Event/KeyboardEvent.h"
+#include "Event/ApplicationEvent.h"
+#include "Event/MouseEvent.h"
 
 namespace RE {
 
@@ -35,6 +37,9 @@ namespace RE {
 
 		glfwSetWindowUserPointer(m_Window, this);
 		glfwSetKeyCallback(m_Window, key_callback);
+		glfwSetWindowSizeCallback(m_Window, size_callback);
+		glfwSetCursorPosCallback(m_Window, cursor_position_callback);
+		glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 			
 	}
 
@@ -45,6 +50,10 @@ namespace RE {
 
 	void WindowsWindow::Update()
 	{
+		if (glfwWindowShouldClose(m_Window)) {
+			Event* e = new WindowClosed();
+			m_EventCallback(e);
+		}
 		glfwPollEvents();
 		glfwSwapBuffers(m_Window);
 	}
@@ -54,9 +63,9 @@ namespace RE {
 		return m_Window;
 	}
 
-	bool WindowsWindow::ShouldClose() const
+	void WindowsWindow::ResizeViewport() const
 	{
-		return glfwWindowShouldClose(m_Window);
+		glViewport(0, 0, m_Width, m_Height);
 	}
 
 	void WindowsWindow::SetEventCallback(std::function<void(Event*)> callback)
@@ -79,6 +88,36 @@ namespace RE {
 		}
 		else if (action == GLFW_RELEASE) {
 			Event* e = new KeyReleased(key);
+			win->m_EventCallback(e);
+		}
+	}
+
+	void size_callback(GLFWwindow* window, int width, int height) {
+
+		auto win = (WindowsWindow*)glfwGetWindowUserPointer(window);
+		win->m_Width = width;
+		win->m_Height = height;
+		win->ResizeViewport();
+
+		Event* e = new WindowResized(width, height);
+		win->m_EventCallback(e);
+	}
+
+	void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
+		auto win = (WindowsWindow*)glfwGetWindowUserPointer(window);
+		Event* e = new MouseMoved((float)xpos, (float)ypos);
+		win->m_EventCallback(e);
+	}
+
+	void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+		auto win = (WindowsWindow*)glfwGetWindowUserPointer(window);
+
+		if (action == GLFW_PRESS) {
+			Event* e = new MouseButtonPressed(button);
+			win->m_EventCallback(e);
+		}
+		else if (action == GLFW_RELEASE) {
+			Event* e = new MouseButtonReleased(button);
 			win->m_EventCallback(e);
 		}
 	}

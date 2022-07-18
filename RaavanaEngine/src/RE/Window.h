@@ -14,10 +14,7 @@ namespace RE {
 		virtual ~Window() {}
 
 		virtual void Update() = 0;
-		virtual bool ShouldClose() const = 0;
-
 		virtual void SetEventCallback(std::function<void(Event*)> callback) = 0;
-
 		virtual void* GetNativeWindow() const = 0;
 
 		inline virtual std::string GetTitle() const { return m_Title; }
