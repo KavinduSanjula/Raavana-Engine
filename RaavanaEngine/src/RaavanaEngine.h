@@ -6,6 +6,8 @@
 #include "RE/Event/Event.h"
 #include "RE/Event/KeyboardEvent.h"
 
+#include "RE/Input/Input.h"
+
 #include "RE/Renderer/VertexBuffer.h"
 
 
