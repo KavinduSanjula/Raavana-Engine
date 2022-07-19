@@ -4,6 +4,8 @@
 #include "Event/Event.h"
 #include "Event/KeyboardEvent.h"
 
+#include "Log.h"
+
 namespace RE {
 
 	Application* Application::instance = nullptr;
@@ -11,9 +13,13 @@ namespace RE {
 	Application::Application()
 	{
 		m_Window = Window::Create("Raavana Engine", 1280, 720);
-		m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 		m_Running = true;
+		m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+
+		Log::Init();
 		Application::instance = this;
+
+		RE_CORE_INFO("Starting Application.");
 	}
 
 	Application::~Application()

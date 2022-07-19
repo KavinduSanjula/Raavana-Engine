@@ -107,8 +107,11 @@
     <ClInclude Include="src\RE\Event\Event.h" />
     <ClInclude Include="src\RE\Event\KeyboardEvent.h" />
     <ClInclude Include="src\RE\Event\MouseEvent.h" />
+    <ClInclude Include="src\RE\Input\Input.h" />
     <ClInclude Include="src\RE\Input\keycodes.h" />
+    <ClInclude Include="src\RE\Log.h" />
     <ClInclude Include="src\RE\Platform\opengl\opengl_VertexBuffer.h" />
+    <ClInclude Include="src\RE\Platform\windows\WindowsInput.h" />
     <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
     <ClInclude Include="src\RE\Renderer\VertexBuffer.h" />
     <ClInclude Include="src\RE\Window.h" />
@@ -132,7 +135,10 @@
     <ClCompile Include="src\RE\Event\Event.cpp" />
     <ClCompile Include="src\RE\Event\KeyboardEvent.cpp" />
     <ClCompile Include="src\RE\Event\MouseEvent.cpp" />
+    <ClCompile Include="src\RE\Input\Input.cpp" />
+    <ClCompile Include="src\RE\Log.cpp" />
     <ClCompile Include="src\RE\Platform\opengl\opengl_VertexBuffer.cpp" />
+    <ClCompile Include="src\RE\Platform\windows\WindowsInput.cpp" />
     <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp" />
     <ClCompile Include="src\RE\repch.cpp" />
     <ClCompile Include="vendor\imgui\imgui.cpp" />

@@ -92,6 +92,9 @@
     <ClInclude Include="src\RE\Event\ApplicationEvent.h" />
     <ClInclude Include="src\RE\Event\MouseEvent.h" />
     <ClInclude Include="src\RE\Input\keycodes.h" />
+    <ClInclude Include="src\RE\Input\Input.h" />
+    <ClInclude Include="src\RE\Platform\windows\WindowsInput.h" />
+    <ClInclude Include="src\RE\Log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp">
@@ -134,5 +137,8 @@
     <ClCompile Include="src\RE\Event\KeyboardEvent.cpp" />
     <ClCompile Include="src\RE\Event\ApplicationEvent.cpp" />
     <ClCompile Include="src\RE\Event\MouseEvent.cpp" />
+    <ClCompile Include="src\RE\Input\Input.cpp" />
+    <ClCompile Include="src\RE\Platform\windows\WindowsInput.cpp" />
+    <ClCompile Include="src\RE\Log.cpp" />
   </ItemGroup>
 </Project>

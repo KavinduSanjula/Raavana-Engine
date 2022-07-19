@@ -5,12 +5,14 @@ class Sandbox : public RE::Application {
 public:
 
 	Sandbox() {
+		
 	}
 
 	~Sandbox() {
 	}
 
 	void Update() override {
+
 	}
 
 	void OnKeyPressed(RE::KeyPressed* e) override {
