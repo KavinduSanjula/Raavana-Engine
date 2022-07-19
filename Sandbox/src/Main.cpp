@@ -15,12 +15,6 @@ public:
 
 	}
 
-	void OnKeyPressed(RE::KeyPressed* e) override {
-		if (e->GetKey() == RE_KEY_A) {
-			std::cout << "A Key Pressed!" << std::endl;
-		}
-	}
-
 };
 
 RE::Application* CreateApplication() {
