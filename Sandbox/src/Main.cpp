@@ -5,24 +5,15 @@ class Sandbox : public RE::Application {
 public:
 
 	Sandbox() {
-		std::cout << m_Window->GetTitle() << std::endl;
-		float verts[] = { 0.5f,0.5f };
-		auto vb = RE::VertexBuffer::Create(nullptr, 2 * sizeof(float));
-		vb->SetData(verts, 2 * sizeof(float));
 	}
 
 	~Sandbox() {
-
 	}
 
 	void Update() override {
-
 	}
 
-	void OnWindowResized(RE::WindowResized* e) override {
-		auto [width, height] = e->GetSize();
-		std::cout << width << ", " << height << std::endl;
-	}
+
 };
 
 RE::Application* CreateApplication() {
