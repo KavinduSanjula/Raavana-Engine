@@ -2,6 +2,7 @@
 #include <string>
 
 #include "core.h"
+#include "Input/keycodes.h"
 
 namespace RE {
 

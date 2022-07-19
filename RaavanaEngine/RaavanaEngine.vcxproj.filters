@@ -91,6 +91,7 @@
     <ClInclude Include="src\RE\Event\KeyboardEvent.h" />
     <ClInclude Include="src\RE\Event\ApplicationEvent.h" />
     <ClInclude Include="src\RE\Event\MouseEvent.h" />
+    <ClInclude Include="src\RE\Input\keycodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp">

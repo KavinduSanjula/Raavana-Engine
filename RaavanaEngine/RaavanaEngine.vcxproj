@@ -107,6 +107,7 @@
     <ClInclude Include="src\RE\Event\Event.h" />
     <ClInclude Include="src\RE\Event\KeyboardEvent.h" />
     <ClInclude Include="src\RE\Event\MouseEvent.h" />
+    <ClInclude Include="src\RE\Input\keycodes.h" />
     <ClInclude Include="src\RE\Platform\opengl\opengl_VertexBuffer.h" />
     <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
     <ClInclude Include="src\RE\Renderer\VertexBuffer.h" />
