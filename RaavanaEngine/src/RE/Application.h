@@ -28,6 +28,11 @@ namespace RE {
 		virtual void OnMousePressed(MouseButtonPressed* e);
 		virtual void OnMouseReleased(MouseButtonReleased* e);
 
+		inline virtual Window* GetWindow() const { return m_Window; }
+		inline virtual void* GetNativeWindow() const { return m_Window->GetNativeWindow(); }
+
+		static Application* instance;
+
 	private:
 		void OnEvent(Event* e);
 

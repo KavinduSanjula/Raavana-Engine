@@ -6,11 +6,14 @@
 
 namespace RE {
 
+	Application* Application::instance = nullptr;
+
 	Application::Application()
 	{
 		m_Window = Window::Create("Raavana Engine", 1280, 720);
 		m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
 		m_Running = true;
+		Application::instance = this;
 	}
 
 	Application::~Application()
