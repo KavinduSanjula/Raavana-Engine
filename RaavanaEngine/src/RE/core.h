@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 
+#define NO_TEXTURE "no-texture"
 
 #ifdef RE_EXPORT_DLL
 #define RE_API __declspec(dllexport)
