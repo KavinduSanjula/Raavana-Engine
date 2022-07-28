@@ -28,6 +28,8 @@ project "Sandbox"
    files {  "Sandbox/src/**.h",
             "Sandbox/src/**.cpp" 
          }
+   
+   removefiles { "Sandbox/res/**.*" }
 
    defines { "RE_IMPORT_DLL"}
 
