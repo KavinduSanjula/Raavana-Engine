@@ -7,11 +7,23 @@
     <Filter Include="src\RE">
       <UniqueIdentifier>{D34A661C-BFEC-90F2-A8A7-A44694E81743}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\RE\Event">
+      <UniqueIdentifier>{645E7B8B-50C1-0A30-F946-43E6E588D6B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RE\Input">
+      <UniqueIdentifier>{128DBF8B-FEEF-4E30-A775-87E693B71AB3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RE\Math">
+      <UniqueIdentifier>{8C6B9359-F820-0C4F-8115-0626EDC90253}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\RE\Platform">
       <UniqueIdentifier>{87647D6D-F3EF-EA31-FC00-6E26680B4732}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\RE\Platform\opengl">
       <UniqueIdentifier>{3BE8BD39-27E2-E68B-104F-7D9CFCE74CF8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RE\Platform\opengl\utils">
+      <UniqueIdentifier>{FBF960CE-E7B4-507A-906C-C9C47C069B0A}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\RE\Platform\windows">
       <UniqueIdentifier>{E13D96C9-4D75-DE60-567F-4284C235055A}</UniqueIdentifier>
@@ -36,13 +48,82 @@
     <ClInclude Include="src\RE\EntryPoint.h">
       <Filter>src\RE</Filter>
     </ClInclude>
+    <ClInclude Include="src\RE\Event\ApplicationEvent.h">
+      <Filter>src\RE\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Event\Event.h">
+      <Filter>src\RE\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Event\KeyboardEvent.h">
+      <Filter>src\RE\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Event\MouseEvent.h">
+      <Filter>src\RE\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Input\Input.h">
+      <Filter>src\RE\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Input\keycodes.h">
+      <Filter>src\RE\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Log.h">
+      <Filter>src\RE</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Math\types.h">
+      <Filter>src\RE\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\opengl\opengl.h">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\opengl\opengl_IndexBuffer.h">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\opengl\opengl_Renderer.h">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\opengl\opengl_Shader.h">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\opengl\opengl_Texture.h">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\opengl\opengl_VertexArray.h">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClInclude>
     <ClInclude Include="src\RE\Platform\opengl\opengl_VertexBuffer.h">
       <Filter>src\RE\Platform\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\opengl\utils\opengl_VertexBufferLayout.h">
+      <Filter>src\RE\Platform\opengl\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Platform\windows\WindowsInput.h">
+      <Filter>src\RE\Platform\windows</Filter>
     </ClInclude>
     <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h">
       <Filter>src\RE\Platform\windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\RE\Renderer\IndexBuffer.h">
+      <Filter>src\RE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Renderer\Renderer.h">
+      <Filter>src\RE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Renderer\Shader.h">
+      <Filter>src\RE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Renderer\Texture.h">
+      <Filter>src\RE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Renderer\Vertex.h">
+      <Filter>src\RE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Renderer\VertexArray.h">
+      <Filter>src\RE\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\RE\Renderer\VertexBuffer.h">
+      <Filter>src\RE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RE\Renderer\VertexBufferLayout.h">
       <Filter>src\RE\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\RE\Window.h">
@@ -87,34 +168,55 @@
     <ClInclude Include="vendor\stb-image\stb_image.h">
       <Filter>vendor\stb-image</Filter>
     </ClInclude>
-    <ClInclude Include="src\RE\Event\Event.h" />
-    <ClInclude Include="src\RE\Event\KeyboardEvent.h" />
-    <ClInclude Include="src\RE\Event\ApplicationEvent.h" />
-    <ClInclude Include="src\RE\Event\MouseEvent.h" />
-    <ClInclude Include="src\RE\Input\keycodes.h" />
-    <ClInclude Include="src\RE\Input\Input.h" />
-    <ClInclude Include="src\RE\Platform\windows\WindowsInput.h" />
-    <ClInclude Include="src\RE\Log.h" />
-    <ClInclude Include="src\RE\Renderer\IndexBuffer.h" />
-    <ClInclude Include="src\RE\Platform\opengl\opengl_IndexBuffer.h" />
-    <ClInclude Include="src\RE\Platform\opengl\opengl.h" />
-    <ClInclude Include="src\RE\Platform\opengl\utils\opengl_VertexBufferLayout.h" />
-    <ClInclude Include="src\RE\Platform\opengl\opengl_VertexArray.h" />
-    <ClInclude Include="src\RE\Renderer\VertexArray.h" />
-    <ClInclude Include="src\RE\Renderer\VertexBufferLayout.h" />
-    <ClInclude Include="src\RE\Renderer\Vertex.h" />
-    <ClInclude Include="src\RE\Math\types.h" />
-    <ClInclude Include="src\RE\Renderer\Renderer.h" />
-    <ClInclude Include="src\RE\Platform\opengl\opengl_Renderer.h" />
-    <ClInclude Include="src\RE\Renderer\Shader.h" />
-    <ClInclude Include="src\RE\Platform\opengl\opengl_Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp">
       <Filter>src\RE</Filter>
     </ClCompile>
+    <ClCompile Include="src\RE\Event\ApplicationEvent.cpp">
+      <Filter>src\RE\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Event\Event.cpp">
+      <Filter>src\RE\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Event\KeyboardEvent.cpp">
+      <Filter>src\RE\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Event\MouseEvent.cpp">
+      <Filter>src\RE\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Input\Input.cpp">
+      <Filter>src\RE\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Log.cpp">
+      <Filter>src\RE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\opengl\opengl.cpp">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\opengl\opengl_IndexBuffer.cpp">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\opengl\opengl_Renderer.cpp">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\opengl\opengl_Shader.cpp">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\opengl\opengl_Texture.cpp">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\opengl\opengl_VertexArray.cpp">
+      <Filter>src\RE\Platform\opengl</Filter>
+    </ClCompile>
     <ClCompile Include="src\RE\Platform\opengl\opengl_VertexBuffer.cpp">
       <Filter>src\RE\Platform\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\opengl\utils\opengl_VertexBufferLayout.cpp">
+      <Filter>src\RE\Platform\opengl\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RE\Platform\windows\WindowsInput.cpp">
+      <Filter>src\RE\Platform\windows</Filter>
     </ClCompile>
     <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp">
       <Filter>src\RE\Platform\windows</Filter>
@@ -146,18 +248,5 @@
     <ClCompile Include="vendor\stb-image\stb_image.cpp">
       <Filter>vendor\stb-image</Filter>
     </ClCompile>
-    <ClCompile Include="src\RE\Event\Event.cpp" />
-    <ClCompile Include="src\RE\Event\KeyboardEvent.cpp" />
-    <ClCompile Include="src\RE\Event\ApplicationEvent.cpp" />
-    <ClCompile Include="src\RE\Event\MouseEvent.cpp" />
-    <ClCompile Include="src\RE\Input\Input.cpp" />
-    <ClCompile Include="src\RE\Platform\windows\WindowsInput.cpp" />
-    <ClCompile Include="src\RE\Log.cpp" />
-    <ClCompile Include="src\RE\Platform\opengl\opengl_IndexBuffer.cpp" />
-    <ClCompile Include="src\RE\Platform\opengl\opengl.cpp" />
-    <ClCompile Include="src\RE\Platform\opengl\utils\opengl_VertexBufferLayout.cpp" />
-    <ClCompile Include="src\RE\Platform\opengl\opengl_VertexArray.cpp" />
-    <ClCompile Include="src\RE\Platform\opengl\opengl_Renderer.cpp" />
-    <ClCompile Include="src\RE\Platform\opengl\opengl_Shader.cpp" />
   </ItemGroup>
 </Project>

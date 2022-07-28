@@ -115,14 +115,16 @@
     <ClInclude Include="src\RE\Platform\opengl\opengl_IndexBuffer.h" />
     <ClInclude Include="src\RE\Platform\opengl\opengl_Renderer.h" />
     <ClInclude Include="src\RE\Platform\opengl\opengl_Shader.h" />
+    <ClInclude Include="src\RE\Platform\opengl\opengl_Texture.h" />
+    <ClInclude Include="src\RE\Platform\opengl\opengl_VertexArray.h" />
     <ClInclude Include="src\RE\Platform\opengl\opengl_VertexBuffer.h" />
     <ClInclude Include="src\RE\Platform\opengl\utils\opengl_VertexBufferLayout.h" />
-    <ClInclude Include="src\RE\Platform\opengl\opengl_VertexArray.h" />
     <ClInclude Include="src\RE\Platform\windows\WindowsInput.h" />
     <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
     <ClInclude Include="src\RE\Renderer\IndexBuffer.h" />
     <ClInclude Include="src\RE\Renderer\Renderer.h" />
     <ClInclude Include="src\RE\Renderer\Shader.h" />
+    <ClInclude Include="src\RE\Renderer\Texture.h" />
     <ClInclude Include="src\RE\Renderer\Vertex.h" />
     <ClInclude Include="src\RE\Renderer\VertexArray.h" />
     <ClInclude Include="src\RE\Renderer\VertexBuffer.h" />
@@ -154,6 +156,7 @@
     <ClCompile Include="src\RE\Platform\opengl\opengl_IndexBuffer.cpp" />
     <ClCompile Include="src\RE\Platform\opengl\opengl_Renderer.cpp" />
     <ClCompile Include="src\RE\Platform\opengl\opengl_Shader.cpp" />
+    <ClCompile Include="src\RE\Platform\opengl\opengl_Texture.cpp" />
     <ClCompile Include="src\RE\Platform\opengl\opengl_VertexArray.cpp" />
     <ClCompile Include="src\RE\Platform\opengl\opengl_VertexBuffer.cpp" />
     <ClCompile Include="src\RE\Platform\opengl\utils\opengl_VertexBufferLayout.cpp" />
