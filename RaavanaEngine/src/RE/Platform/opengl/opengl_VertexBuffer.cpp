@@ -1,7 +1,8 @@
 #include "repch.h"
 #include "opengl_VertexBuffer.h"
 
-#include "GL/glew.h"
+#include "opengl.h"
+#include "Log.h"
 
 namespace RE {
 
@@ -11,27 +12,32 @@ namespace RE {
 	
 	OpenglVertexBuffer::OpenglVertexBuffer(const void* data, uint32_t size, uint32_t mode)
 	{
-		std::cout << "OpenGL Vertex Buffer Created!" << std::endl;
+		glGenBuffers(1, &m_RendererID);
+		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+		glBufferData(GL_ARRAY_BUFFER, size, data, mode);
+
+		RE_CORE_INFO("Vertex Buffer Created!");
 	}
 
 	OpenglVertexBuffer::~OpenglVertexBuffer()
 	{
-		std::cout << "OpenGL Vertex Buffer Deleted!" << std::endl;
+		glDeleteBuffers(1, &m_RendererID);
+		RE_CORE_INFO("Vertex Buffer Deleted!");
 	}
 
 	void OpenglVertexBuffer::SetData(const void* data, uint32_t size)
 	{
-
+		glBufferSubData(GL_ARRAY_BUFFER, 0, size, data);
 	}
 
 	void OpenglVertexBuffer::Bind() const
 	{
-
+		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
 	}
 
 	void OpenglVertexBuffer::Unbind() const
 	{
-
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
 }

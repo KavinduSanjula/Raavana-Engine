@@ -4,7 +4,7 @@
 
 namespace RE {
 
-	class RE_API OpenglVertexBuffer : public VertexBuffer {
+	class OpenglVertexBuffer : public VertexBuffer {
 
 	public:
 		OpenglVertexBuffer(const void* data, uint32_t size, uint32_t mode);
