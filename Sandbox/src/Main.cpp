@@ -4,43 +4,33 @@
 class Sandbox : public RE::Application {
 public:
 
+	RE::Ref<RE::VertexBuffer> vb;
+	RE::Ref<RE::IndexBuffer> ib;
+	RE::Ref<RE::VertexArray> va;
+	RE::Ref<RE::Shader> shader;
+	RE::Ref<RE::Renderer> renderer;
+
 	Sandbox() {
 		float vertices[] = { -0.5f, -0.5f, 0.5f, -0.5f, 0.5f, 0.5f, -0.5f, 0.5f };
 		uint32_t indeces[] = { 0, 1, 2, 2, 3, 0 };
 
-		auto vb = RE::VertexBuffer::Create(vertices, sizeof(vertices));
-		auto ib = RE::IndexBuffer::Create(indeces, 6);
-		auto va = RE::VertexArray::Create();
-		auto shader = RE::Shader::Create("main.shader");
+		vb = RE::VertexBuffer::Create(vertices, sizeof(vertices));
+		ib = RE::IndexBuffer::Create(indeces, 6);
+		va = RE::VertexArray::Create();
+		shader = RE::Shader::Create("res/basic.shader");
+		renderer = RE::Renderer::Create();
 
 		auto bl = RE::VertexBufferLayout::Create();
 		bl->PushFloat(2);
 		va->AddBuffer(vb, bl);
-
-		auto r = RE::Renderer::Create();
-		r->Clear();
-		r->Draw(va, ib,shader, 6);
 	}
 
 	~Sandbox() {
 	}
 
 	void Update() override {
-		float vertices[] = { -0.5f, -0.5f, 0.5f, -0.5f, 0.5f, 0.5f, -0.5f, 0.5f };
-		uint32_t indeces[] = { 0, 1, 2, 2, 3, 0 };
-
-		auto vb = RE::VertexBuffer::Create(vertices, sizeof(vertices));
-		auto ib = RE::IndexBuffer::Create(indeces, 6);
-		auto va = RE::VertexArray::Create();
-		auto shader = RE::Shader::Create("main.shader");
-
-		auto bl = RE::VertexBufferLayout::Create();
-		bl->PushFloat(2);
-		va->AddBuffer(vb, bl);
-
-		auto r = RE::Renderer::Create();
-		r->Clear();
-		r->Draw(va, ib, shader, 6);
+		renderer->Clear();
+		renderer->Draw(va, ib, shader, 6);
 	}
 
 };
