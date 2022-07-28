@@ -83,7 +83,23 @@ namespace RE {
 
 	uint32_t OpenglShader::compile_shader(uint32_t type, std::string shaderSource) const
 	{
-		return uint32_t();
+		const char* shader_source = shaderSource.c_str();
+		uint32_t shader = glCreateShader(type);
+		glShaderSource(shader, 1, &shader_source, NULL);
+		glCompileShader(shader);
+
+		int  success;
+		char infoLog[512];
+		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+
+		if (!success) {
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
+			std::cout << infoLog << std::endl;
+			__debugbreak;
+			//ASSERT(false);
+		}
+
+		return shader;
 	}
 
 	void create_error_shader(ShaderSource& source) {
