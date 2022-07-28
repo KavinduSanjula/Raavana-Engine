@@ -29,8 +29,8 @@ namespace RE {
 
 		static Ref<Shader> Create(const std::string& shaderPath);
 
+		virtual void SetUniformI1(const std::string& name, int val) = 0;
 		//void SetUniformMat4(const std::string& name, glm::mat4& mat);
-		//void SetUniformI1(const std::string& name, int val);
 		//void SetUniformArrayI(const std::string& name, uint32_t count, int* data);
 
 	protected:

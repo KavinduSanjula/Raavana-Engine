@@ -45,6 +45,11 @@ namespace RE {
 		glUseProgram(0);
 	}
 
+	void OpenglShader::SetUniformI1(const std::string& name, int value)
+	{
+		glUniform1i(GetUniformLocation(name), value);
+	}
+
 	void OpenglShader::ReadShader()
 	{
 		std::ifstream file(m_ShaderPath);
@@ -79,6 +84,11 @@ namespace RE {
 			create_error_shader(m_Source);
 			return;
 		}
+	}
+
+	int OpenglShader::GetUniformLocation(const std::string& name)
+	{
+		return glGetUniformLocation(m_RendererID, name.c_str());
 	}
 
 	uint32_t OpenglShader::compile_shader(uint32_t type, std::string shaderSource) const

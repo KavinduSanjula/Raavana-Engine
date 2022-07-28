@@ -13,9 +13,11 @@ namespace RE {
 		void Bind() const override;
 		void Unbind() const override;
 
+		void SetUniformI1(const std::string& name, int value) override;
+
 	private:
 		void ReadShader();
-		//int GetUniformLocation(const std::string& name);
+		int GetUniformLocation(const std::string& name);
 		uint32_t compile_shader(uint32_t type, std::string shaderSource) const;
 
 	};
