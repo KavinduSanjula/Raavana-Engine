@@ -115,7 +115,7 @@ namespace RE {
 			"out vec4 Color; \n"
 			"void main() \n"
 			" { \n"
-			"Color = vec4(0.0,0.0,1.0,1.0); \n"
+			"Color = vec4(1.0,0.0,1.0,1.0); \n"
 			"} \n";
 
 		source.VertexShaderSource = vs;
