@@ -13,6 +13,7 @@
 #include "RE/Renderer/IndexBuffer.h"
 #include "RE/Renderer/VertexArray.h"
 #include "RE/Renderer/Shader.h"
+#include "RE/Renderer/Texture.h"
 #include "RE/Renderer/VertexBufferLayout.h"
 
 
