@@ -8,7 +8,12 @@
 
 #include "RE/Input/Input.h"
 
+#include "RE/Renderer/Renderer.h"
 #include "RE/Renderer/VertexBuffer.h"
+#include "RE/Renderer/IndexBuffer.h"
+#include "RE/Renderer/VertexArray.h"
+#include "RE/Renderer/Shader.h"
+#include "RE/Renderer/VertexBufferLayout.h"
 
 
 ////////////Entry Point//////////////
