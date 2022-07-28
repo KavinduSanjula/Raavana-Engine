@@ -12,7 +12,6 @@ namespace RE {
 
 	void OpenglVertexBufferLayout::PushFloat(uint32_t count)
 	{
-		RE_CORE_INFO("Pushing floats {0}", count);
 		VertexBufferLayoutElement element({ GL_FLOAT, count, GL_FALSE, sizeof(float) });
 		m_Elements.push_back(element);
 		m_Stride += count * sizeof(float);
