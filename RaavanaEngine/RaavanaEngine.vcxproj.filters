@@ -168,6 +168,8 @@
     <ClInclude Include="vendor\stb-image\stb_image.h">
       <Filter>vendor\stb-image</Filter>
     </ClInclude>
+    <ClInclude Include="src\RE\Drawables\Vertex.h" />
+    <ClInclude Include="src\RE\Drawables\Rect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp">
@@ -248,5 +250,6 @@
     <ClCompile Include="vendor\stb-image\stb_image.cpp">
       <Filter>vendor\stb-image</Filter>
     </ClCompile>
+    <ClCompile Include="src\RE\Drawables\Rect.cpp" />
   </ItemGroup>
 </Project>

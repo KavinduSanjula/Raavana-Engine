@@ -16,6 +16,9 @@
 #include "RE/Renderer/Texture.h"
 #include "RE/Renderer/VertexBufferLayout.h"
 
+#include "RE/Drawables/Vertex.h"
+#include "RE/Drawables/Rect.h"
+
 
 ////////////Entry Point//////////////
 #include "RE/EntryPoint.h"

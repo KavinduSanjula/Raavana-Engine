@@ -12,7 +12,7 @@ public:
 	RE::Ref<RE::Renderer> renderer;
 
 	Sandbox() {
-
+		/*
 		float vertices[] = {	
 			-0.5f, -0.5f, 0.0f, 0.0f,
 			 0.5f, -0.5f, 1.0f, 0.0f,
@@ -20,20 +20,30 @@ public:
 			-0.5f,  0.5f, 0.0f, 1.0f
 		};
 
-		uint32_t indeces[] = { 0, 1, 2, 2, 3, 0 };
+		
 
 		vb = RE::VertexBuffer::Create(vertices, sizeof(vertices));
-		ib = RE::IndexBuffer::Create(indeces, 6);
-		va = RE::VertexArray::Create();
-		shader = RE::Shader::Create("res/shaders/texture-shader.shader");
-		texture = RE::Texture::Create("res/images/cover.jpg");
-		renderer = RE::Renderer::Create();
+		
 
 		auto bl = RE::VertexBufferLayout::Create();
 		bl->PushFloat(2);
 		bl->PushFloat(2);
 		va->AddBuffer(vb, bl);
+		*/
 
+		renderer = RE::Renderer::Create();
+
+		RE::Rect rect({ -1.0f,-1.0f }, { 1.0f,1.0f }, NO_TEXTURE, {1.0f,0.0f,0.0f,1.0f});
+
+		uint32_t indeces[] = { 0, 1, 2, 2, 3, 0 };
+
+		ib = RE::IndexBuffer::Create(indeces, 6);
+		va = RE::VertexArray::Create();
+
+		va->AddBuffer(rect.GetVertexBuffer(), RE::Vertex::GetLayout());
+
+		shader = RE::Shader::Create("res/shaders/texture-shader.shader");
+		texture = RE::Texture::Create("res/images/cover.jpg");
 		texture->Bind(0);
 		shader->Bind();
 		shader->SetUniformI1("tex", 0);
