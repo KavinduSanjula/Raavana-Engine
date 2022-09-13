@@ -2,6 +2,8 @@
 #include "opengl_Texture.h"
 #include "Log.h"
 
+#include "RE/AssetManager/AssetManager.h"
+
 #include <GL/glew.h>
 #include <stb-image/stb_image.h>
 
@@ -13,6 +15,8 @@ namespace RE {
 
 	OpenglTexture::OpenglTexture(const std::string& filename)
 	{
+		m_AssetID = AssetManager::GetUniqueID();
+
 		if (filename == NO_TEXTURE) {
 			unsigned char data[] = { 255,255,255,255 };
 			m_LocalBuffer = data;

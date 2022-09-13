@@ -27,6 +27,8 @@ namespace RE {
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
+		inline uint32_t GetAssetID() const { return m_AssetID; }
+
 		static Ref<Shader> Create(const std::string& shaderPath);
 
 		virtual void SetUniformI1(const std::string& name, int val) = 0;
@@ -34,6 +36,7 @@ namespace RE {
 		//void SetUniformArrayI(const std::string& name, uint32_t count, int* data);
 
 	protected:
+		uint32_t m_AssetID;
 		uint32_t m_RendererID;
 		std::string m_ShaderPath;
 		ShaderSource m_Source;

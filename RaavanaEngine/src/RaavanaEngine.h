@@ -9,6 +9,7 @@
 #include "RE/Input/Input.h"
 
 #include "RE/Renderer/Renderer.h"
+#include "RE/Renderer/Vertex.h"
 #include "RE/Renderer/VertexBuffer.h"
 #include "RE/Renderer/IndexBuffer.h"
 #include "RE/Renderer/VertexArray.h"
@@ -16,7 +17,6 @@
 #include "RE/Renderer/Texture.h"
 #include "RE/Renderer/VertexBufferLayout.h"
 
-#include "RE/Drawables/Vertex.h"
 #include "RE/Drawables/Rect.h"
 
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Vertex.h"
 #include "RE/core.h"
+#include "RE/Renderer/Vertex.h"
 #include "RE/Renderer/VertexBuffer.h"
 
 #include <glm/vec2.hpp>

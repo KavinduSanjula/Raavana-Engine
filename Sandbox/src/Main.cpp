@@ -43,7 +43,9 @@ public:
 		va->AddBuffer(rect.GetVertexBuffer(), RE::Vertex::GetLayout());
 
 		shader = RE::Shader::Create("res/shaders/texture-shader.shader");
+		std::cout << "Shader 1 - " << shader->GetAssetID() << std::endl;
 		texture = RE::Texture::Create("res/images/cover.jpg");
+		std::cout << "Texture 1 - " << texture->GetAssetID() << std::endl;
 		texture->Bind(0);
 		shader->Bind();
 		shader->SetUniformI1("tex", 0);

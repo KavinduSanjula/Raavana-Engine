@@ -3,6 +3,8 @@
 
 #include "opengl.h"
 
+#include "RE/AssetManager/AssetManager.h"
+
 namespace RE {
 
 	void create_error_shader(ShaderSource& source);
@@ -13,6 +15,8 @@ namespace RE {
 
 	OpenglShader::OpenglShader(const std::string& shaderPath)
 	{
+		m_AssetID = AssetManager::GetUniqueID();
+
 		m_ShaderPath = shaderPath;
 
 		ReadShader();
