@@ -22,7 +22,9 @@ project "Sandbox"
    targetdir "bin/%{cfg.buildcfg}/%{prj.name}"
    objdir "bin-int/%{cfg.buildcfg}/%{prj.name}"
 
-   includedirs {  "RaavanaEngine/src", }
+   includedirs {  "RaavanaEngine/src",
+                  "vendor"
+                }
    links {"RaavanaEngine"}
 
    files {  "Sandbox/src/**.h",
@@ -56,7 +58,8 @@ project "RaavanaEngine"
                   "RaavanaEngine/src/RE",
                   "RaavanaEngine/vendor",
                   "RaavanaEngine/vendor/GLFW/include",
-                  "RaavanaEngine/vendor/GLEW/include"
+                  "RaavanaEngine/vendor/GLEW/include",
+                  "vendor"
                }
 
    libdirs {   "RaavanaEngine/vendor/GLFW/lib-vc2019",
