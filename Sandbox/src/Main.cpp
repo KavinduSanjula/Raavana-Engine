@@ -11,8 +11,12 @@ public:
 	RE::Ref<RE::Texture> texture;
 	RE::Ref<RE::Renderer> renderer;
 
+	RE::RectRenderer* m_Renderer;
+	RE::Rect* m_Rect = nullptr;
+
 	Sandbox() {
 		/*
+		
 		float vertices[] = {	
 			-0.5f, -0.5f, 0.0f, 0.0f,
 			 0.5f, -0.5f, 1.0f, 0.0f,
@@ -29,7 +33,7 @@ public:
 		bl->PushFloat(2);
 		bl->PushFloat(2);
 		va->AddBuffer(vb, bl);
-		*/
+		
 
 		renderer = RE::Renderer::Create();
 
@@ -49,14 +53,19 @@ public:
 		texture->Bind(0);
 		shader->Bind();
 		shader->SetUniformI1("tex", 0);
+
+		*/
 	}
 
 	~Sandbox() {
+		delete m_Rect;
 	}
 
 	void Update() override {
-		renderer->Clear();
-		renderer->Draw(va, ib, shader, 6);
+		auto raavana_texture = RE::AssetManager::CreateTexture("res/images/cover.jpg");
+		//m_Renderer->BeginBatch();
+		//m_Renderer->Submit(*m_Rect);
+		//m_Renderer->Flush();
 	}
 
 };

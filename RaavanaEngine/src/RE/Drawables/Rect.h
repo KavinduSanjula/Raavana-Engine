@@ -22,7 +22,7 @@ namespace RE {
 		glm::vec4 m_Color;
 
 	public:
-		Rect(const glm::vec2& pos, const glm::vec2& size, const std::string& texture, const glm::vec4& color = {1.0,1.0,1.0,1.0});
+		Rect(const glm::vec2& pos, const glm::vec2& size, const std::string& texture, const glm::vec4& color = {1.0f,1.0f,1.0f,1.0f});
 		~Rect();
 
 		inline std::array<Vertex, 4> GetVertices() const { return m_Vertices; }

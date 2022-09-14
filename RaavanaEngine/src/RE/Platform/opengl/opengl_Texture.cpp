@@ -3,6 +3,7 @@
 #include "Log.h"
 
 #include "RE/AssetManager/AssetManager.h"
+#include "RE/Log.h"
 
 #include <GL/glew.h>
 #include <stb-image/stb_image.h>
@@ -16,6 +17,7 @@ namespace RE {
 	OpenglTexture::OpenglTexture(const std::string& filename)
 	{
 		m_AssetID = AssetManager::GetUniqueID();
+		RE_CORE_INFO("Texture Created: asset_id - {0} path - {1} ", m_AssetID, filename);
 
 		if (filename == NO_TEXTURE) {
 			unsigned char data[] = { 255,255,255,255 };

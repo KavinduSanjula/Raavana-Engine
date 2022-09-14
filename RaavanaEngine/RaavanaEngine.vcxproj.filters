@@ -170,6 +170,7 @@
     </ClInclude>
     <ClInclude Include="src\RE\Drawables\Rect.h" />
     <ClInclude Include="src\RE\AssetManager\AssetManager.h" />
+    <ClInclude Include="src\RE\Renderer\RectRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp">
@@ -252,5 +253,6 @@
     </ClCompile>
     <ClCompile Include="src\RE\Drawables\Rect.cpp" />
     <ClCompile Include="src\RE\AssetManager\AssetManager.cpp" />
+    <ClCompile Include="src\RE\Renderer\RectRenderer.cpp" />
   </ItemGroup>
 </Project>
