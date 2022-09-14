@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include "RE/core.h"
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 
 namespace RE {
 
@@ -32,8 +34,8 @@ namespace RE {
 		static Ref<Shader> Create(const std::string& shaderPath);
 
 		virtual void SetUniformI1(const std::string& name, int val) = 0;
-		//void SetUniformMat4(const std::string& name, glm::mat4& mat);
-		//void SetUniformArrayI(const std::string& name, uint32_t count, int* data);
+		virtual void SetUniformMat4(const std::string& name, glm::mat4& mat) = 0;
+		virtual void SetUniformArrayI(const std::string& name, uint32_t count, int* data) = 0;
 
 	protected:
 		uint32_t m_AssetID;
