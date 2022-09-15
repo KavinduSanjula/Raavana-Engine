@@ -30,23 +30,23 @@ namespace RE {
 	}
 
 	void make_quad(std::array<Vertex, 4>& arr, const glm::vec2& pos, const glm::vec2& size, const glm::vec4& color, float texID) {
-		arr[0].Position = { pos.x, pos.y, 0 };
-		arr[0].Color = color;
+		arr[0].Position = { pos.x,pos.y, 0 };
+		arr[0].Color = { color.x, color.y, color.z, color.w };
 		arr[0].TexCoord = { 0,0 };
 		arr[0].TexID = texID;
 
-		arr[1].Position = { pos.x + size.x, pos.y, 0 };
-		arr[1].Color = color;
+		arr[1].Position =  { pos.x + size.x, pos.y, 0};
+		arr[1].Color = { color.x, color.y, color.z, color.w };
 		arr[1].TexCoord = { 1,0 };
 		arr[1].TexID = texID;
 
-		arr[2].Position = { pos.x + size.x, pos.y + size.y, 0 };
-		arr[2].Color = color;
+		arr[2].Position =  { pos.x + size.x, pos.y + size.y, 0};
+		arr[2].Color = { color.x, color.y, color.z, color.w };
 		arr[2].TexCoord = { 1,1 };
 		arr[2].TexID = texID;
 
-		arr[3].Position = { pos.x, pos.y + size.y, 0 };
-		arr[3].Color = color;
+		arr[3].Position = { pos.x, pos.y + size.y, 0};
+		arr[3].Color = { color.x, color.y, color.z, color.w };
 		arr[3].TexCoord = { 0,1 };
 		arr[3].TexID = texID;
 	}

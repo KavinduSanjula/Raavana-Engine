@@ -1,6 +1,9 @@
 #include <RaavanaEngine.h>
 #include <iostream>
 
+#include <glm/glm.hpp>
+#include <glm/ext/matrix_transform.hpp>
+
 class Sandbox : public RE::Application {
 public:
 
@@ -55,6 +58,38 @@ public:
 		shader->SetUniformI1("tex", 0);
 
 		*/
+
+		glm::mat4 proj = glm::ortho(0,10,0,1);
+		glm::mat4  view = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f));
+		glm::mat4 vp = proj * view;
+
+		m_Rect = new RE::Rect({ 0,0 }, { 1,1 }, NO_TEXTURE, {1.0f, 1.0f,1.0f,1.0f });
+		shader = RE::AssetManager::CreateShader("res/shaders/texture-shader.shader");
+		shader->Bind();
+		shader->SetUniformMat4("u_Proj", vp);
+		shader->Unbind();
+
+		uint32_t indeces[] = { 0, 1, 2, 2, 3, 0 };
+
+		RE::Vertex verticies[4];
+
+		auto data = m_Rect->GetVertices();
+
+		memcpy(verticies, data.data(), 4 * sizeof(RE::Vertex));
+
+		vb = RE::VertexBuffer::Create(verticies, 4 * sizeof(RE::Vertex));
+		ib = RE::IndexBuffer::Create(indeces, 6);
+		va = RE::VertexArray::Create();
+
+		va->AddBuffer(vb,RE::Vertex::GetLayout());
+
+		renderer = RE::Renderer::Create();
+		auto tex = RE::AssetManager::CreateTexture("res/images/cover.jpg");
+		auto tex2 = RE::AssetManager::CreateTexture(NO_TEXTURE);
+		//tex->Bind(0);
+		tex2->Bind(0);
+
+
 	}
 
 	~Sandbox() {
@@ -62,10 +97,7 @@ public:
 	}
 
 	void Update() override {
-		auto raavana_texture = RE::AssetManager::CreateTexture("res/images/cover.jpg");
-		//m_Renderer->BeginBatch();
-		//m_Renderer->Submit(*m_Rect);
-		//m_Renderer->Flush();
+		renderer->Draw(va, ib, shader, 6);
 	}
 
 };

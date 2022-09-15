@@ -41,7 +41,7 @@ namespace RE {
 		Ref<IndexBuffer> m_IB;
 		Ref<Shader> m_Shader;
 		Ref<Renderer> m_Renderer;
-		//Ref<Camera> m_Camera;
+
 
 		std::unordered_map<std::string, float> m_TextureMap;
 		std::array<Ref<Texture>, MAX_TEXTURE_COUNT> m_Textures;

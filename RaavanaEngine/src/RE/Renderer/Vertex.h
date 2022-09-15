@@ -2,16 +2,22 @@
 #include "RE/core.h"
 #include "VertexBufferLayout.h"
 
-#include <glm/vec2.hpp>
-#include <glm/vec3.hpp>
-#include <glm/vec4.hpp>
-
 namespace RE {
 
+	struct Float4 {
+		float x, y, z, w;
+	};
+	struct Float3 {
+		float x, y, z;
+	};
+	struct Float2 {
+		float x, y;
+	};
+
 	struct RE_API Vertex {
-		glm::vec3 Position;
-		glm::vec4 Color;
-		glm::vec2 TexCoord;
+		Float3 Position;
+		Float4 Color;
+		Float2 TexCoord;
 		float TexID;
 
 		static Ref<VertexBufferLayout> GetLayout() {

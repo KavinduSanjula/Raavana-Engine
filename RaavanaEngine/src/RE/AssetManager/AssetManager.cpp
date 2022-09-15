@@ -24,7 +24,7 @@ namespace RE {
 	Ref<Texture> AssetManager::Create_Texture(const std::string& filename)
 	{
 		if (m_Textures.find(filename) != m_Textures.end()) {
-			RE_CORE_INFO("Texture alrady created!");
+			//RE_CORE_INFO("Texture alrady created!");
 			return m_Textures[filename];
 		}
 
@@ -35,7 +35,7 @@ namespace RE {
 	Ref<Shader> AssetManager::Create_Shader(const std::string& filename)
 	{
 		if (m_Shaders.find(filename) != m_Shaders.end()) {
-			RE_CORE_INFO("Shader alrady created!");
+			//RE_CORE_INFO("Shader alrady created!");
 			return m_Shaders[filename];
 		}
 

@@ -4,9 +4,7 @@
 #include "RE/Renderer/Vertex.h"
 #include "RE/Renderer/VertexBuffer.h"
 
-#include <glm/vec2.hpp>
-#include <glm/vec4.hpp>
-
+#include <glm/glm.hpp>
 #include <string>
 #include <array>
 

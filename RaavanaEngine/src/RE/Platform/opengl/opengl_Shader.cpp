@@ -4,6 +4,7 @@
 #include "opengl.h"
 
 #include "RE/AssetManager/AssetManager.h"
+#include "Log.h"
 
 namespace RE {
 
@@ -16,6 +17,7 @@ namespace RE {
 	OpenglShader::OpenglShader(const std::string& shaderPath)
 	{
 		m_AssetID = AssetManager::GetUniqueID();
+		RE_CORE_INFO("Shader Created: asset_id - {0} path - {1} ", m_AssetID, shaderPath);
 
 		m_ShaderPath = shaderPath;
 
