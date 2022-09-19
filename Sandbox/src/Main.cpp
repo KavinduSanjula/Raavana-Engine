@@ -16,24 +16,32 @@ public:
 
 
 	RE::rect_BatchRenderer* batch_renderer;
-	RE::Rect* rect;
+	
+	std::vector<RE::Rect*> rects;
 
 
 	Sandbox() 
 	{
 		shader = RE::Shader::Create("res/shaders/texture-shader.shader");
 		batch_renderer = new RE::rect_BatchRenderer(shader);
-		rect = new RE::Rect({ 100, 300 }, { 100, 100 }, "res/images/cover.jpg");
 
-		RE::Rect r2({ 100,100}, { 100,100 }, "res/images/cover.jpg");
+		for (int y = 0; y < 500; y += 100) {
+			for (int x = 0; x < 1000; x += 200) {
+				rects.push_back(new RE::Rect({ x + 100,y + 100 }, { 190, 90 }, "res/images/cover.jpg"));
+			}
+		}
+
+		rects[5]->SetTexturePath("res/images/cover-2.jpg");
+		rects[9]->SetTexturePath("res/images/cover-blue.jpg");
+		rects[16]->SetTexturePath("res/images/cover-2.jpg");
+		rects[20]->SetTexturePath("res/images/cover-blue.jpg");
 
 		glm::mat4 P = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f);
 		shader->Bind();
 		shader->SetUniformMat4("u_Proj", P);
 		shader->Unbind();
 		
-		batch_renderer->Attach(*rect);
-		batch_renderer->Attach(r2);
+		
 
 	}
 
@@ -76,9 +84,14 @@ public:
 
 	void Update() override 
 	{
-		//batch_renderer->BeginBatch();
-		
+		batch_renderer->Clear();
+		batch_renderer->Begin();
+		for (auto rect : rects) {
+			batch_renderer->Attach(*rect);
+		}
 		batch_renderer->Flush();
+
+		//std::cout << "Draw Calls - " << batch_renderer->_GetDrawcallCount() << std::endl;
 	}
 
 };

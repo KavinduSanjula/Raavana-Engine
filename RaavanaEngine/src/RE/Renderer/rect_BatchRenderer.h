@@ -30,11 +30,15 @@ namespace RE {
 	public:
 		rect_BatchRenderer(const Ref<Shader>& shader);
 		~rect_BatchRenderer();
+
+		void Clear();
 	
 		void Begin();
 		void Attach(const Rect& rect);
 		void Dettach(const Rect& rect);
 		void Flush();
+
+		inline int _GetDrawcallCount() { return _draw_call_count; }
 
 	private:
 		void GenerateIndeces();
@@ -57,6 +61,10 @@ namespace RE {
 		uint32_t m_SubmitCount;
 		uint32_t m_IndexCount;
 		uint32_t m_TextureID;
+
+		Float4 m_ClearColor = { 0.1, 0.1, 0.1, 1.0 };
+
+		int _draw_call_count = 0;
 
 	};
 

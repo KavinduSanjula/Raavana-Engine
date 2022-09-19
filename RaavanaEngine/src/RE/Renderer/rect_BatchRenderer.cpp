@@ -34,6 +34,12 @@ namespace RE {
 	{
 	}
 
+	void rect_BatchRenderer::Clear()
+	{
+		m_Renderer->Clear(m_ClearColor.x, m_ClearColor.y, m_ClearColor.z, m_ClearColor.w);
+		_draw_call_count = 0;
+	}
+
 	void rect_BatchRenderer::Begin()
 	{
 		m_SubmitCount = 0;
@@ -50,12 +56,12 @@ namespace RE {
 	{
 		int texture_count = m_Textures.size();
 
-		if (m_SubmitCount > MAX_RECT_COUNT) {
+		if (m_SubmitCount >= MAX_RECT_COUNT) {
 			Flush();
 			Begin();
 		}
 
-		if (texture_count > MAX_TEXTURE_COUNT) {
+		if (texture_count >= MAX_TEXTURE_COUNT) {
 			Flush();
 			Begin();
 		}
@@ -88,8 +94,9 @@ namespace RE {
 
 		m_vb->SetData(m_Verticies,sizeof(m_Verticies));
 
-		m_Renderer->Clear(0.1, 0.1, 0.1, 1.0);
-		m_Renderer->Draw(m_va, m_ib, m_shader, 12);
+		m_Renderer->Draw(m_va, m_ib, m_shader, m_IndexCount);
+
+		_draw_call_count++;
 	}
 
 	void rect_BatchRenderer::GenerateIndeces()

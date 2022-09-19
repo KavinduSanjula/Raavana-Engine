@@ -25,6 +25,7 @@ namespace RE {
 
 		inline std::array<Vertex, 4> GetVertices() const { return m_Vertices; }
 		inline std::string GetTexturePath() const { return m_TexturePath; }
+		inline void SetTexturePath(const std::string& path) { m_TexturePath = path; }
 
 		void SetTextureID(float texID) const;
 		Ref<VertexBuffer> GetVertexBuffer();
