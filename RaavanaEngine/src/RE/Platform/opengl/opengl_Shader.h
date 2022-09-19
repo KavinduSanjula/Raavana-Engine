@@ -14,6 +14,8 @@ namespace RE {
 		void Unbind() const override;
 
 		void SetUniformI1(const std::string& name, int value) override;
+		void SetUniformMat4(const std::string& name, glm::mat4& mat) override;
+		void SetUniformArrayI(const std::string& name, uint32_t count, int* data) override;
 
 	private:
 		void ReadShader();

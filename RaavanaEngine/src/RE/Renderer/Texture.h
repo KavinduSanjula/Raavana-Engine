@@ -14,9 +14,12 @@ namespace RE {
 		virtual void Bind(uint32_t slot = 0) const = 0;
 		virtual void Unbind() const = 0;
 
+		inline uint32_t GetAssetID() const { return m_AssetID; }
+
 		static Ref<Texture> Create(const std::string& filename);
 
 	protected:
+		uint32_t m_AssetID;
 		uint32_t m_RendererID = 0;
 		int m_Width=0, m_Height=0, m_NrChannels=0;
 		unsigned char* m_LocalBuffer=nullptr;

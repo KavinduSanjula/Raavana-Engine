@@ -1,6 +1,9 @@
 #include <RaavanaEngine.h>
 #include <iostream>
 
+#include <glm/glm.hpp>
+#include <glm/ext/matrix_transform.hpp>
+
 class Sandbox : public RE::Application {
 public:
 
@@ -11,40 +14,84 @@ public:
 	RE::Ref<RE::Texture> texture;
 	RE::Ref<RE::Renderer> renderer;
 
-	Sandbox() {
 
-		float vertices[] = {	
-			-0.5f, -0.5f, 0.0f, 0.0f,
-			 0.5f, -0.5f, 1.0f, 0.0f,
-			 0.5f,  0.5f, 1.0f, 1.0f,
-			-0.5f,  0.5f, 0.0f, 1.0f
+	RE::rect_BatchRenderer* batch_renderer;
+	
+	std::vector<RE::Rect*> rects;
+
+
+	Sandbox() 
+	{
+		shader = RE::Shader::Create("res/shaders/texture-shader.shader");
+		batch_renderer = new RE::rect_BatchRenderer(shader);
+
+		for (int y = 0; y < 500; y += 100) {
+			for (int x = 0; x < 1000; x += 200) {
+				rects.push_back(new RE::Rect({ x + 100,y + 100 }, { 190, 90 }, "res/images/cover.jpg"));
+			}
+		}
+
+		rects[5]->SetTexturePath("res/images/cover-2.jpg");
+		rects[9]->SetTexturePath("res/images/cover-blue.jpg");
+		rects[16]->SetTexturePath("res/images/cover-2.jpg");
+		rects[20]->SetTexturePath("res/images/cover-blue.jpg");
+
+		glm::mat4 P = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f);
+		shader->Bind();
+		shader->SetUniformMat4("u_Proj", P);
+		shader->Unbind();
+		
+		
+
+	}
+
+	/*
+	void CreateShape(float x, float y, float w, float h) 
+	{	
+		float verticies[] = {
+			x,	 y,	 0.0f,  1.0f,0.0f,1.0f,1.0f,  0.0f, 0.0f,  0.0f,
+			x+w, y,	 0.0f,  1.0f,1.0f,1.0f,1.0f,  0.0f, 0.0f,  0.0f,
+			x+w, y+h, 0.0f,  1.0f,1.0f,0.0f,1.0f,  0.0f, 0.0f,  0.0f,
+			x,	 y+h, 0.0f,  0.0f,1.0f,1.0f,1.0f,  0.0f, 0.0f,  0.0f,
 		};
 
-		uint32_t indeces[] = { 0, 1, 2, 2, 3, 0 };
+		uint32_t indecies[6] = { 0,1,2,2,3,0 };
 
-		vb = RE::VertexBuffer::Create(vertices, sizeof(vertices));
-		ib = RE::IndexBuffer::Create(indeces, 6);
-		va = RE::VertexArray::Create();
-		shader = RE::Shader::Create("res/shaders/texture-shader.shader");
-		texture = RE::Texture::Create("res/images/cover.jpg");
+		RE::Rect rect = RE::Rect({ 100,200 }, { 100,100 }, NO_TEXTURE);
+		auto vertex_data = rect.GetVertices();
+
+		RE::Vertex verticies[4];
+		memcpy(verticies, vertex_data.data(), 4 * sizeof(RE::Vertex));
+
 		renderer = RE::Renderer::Create();
+		vb = RE::VertexBuffer::Create(verticies, sizeof(verticies));
+		ib = RE::IndexBuffer::Create(indecies, 6);
+		va = RE::VertexArray::Create();
 
-		auto bl = RE::VertexBufferLayout::Create();
-		bl->PushFloat(2);
-		bl->PushFloat(2);
-		va->AddBuffer(vb, bl);
+		auto layout = RE::VertexBufferLayout::Create();
+		layout->PushFloat(3);
+		layout->PushFloat(4);
+		layout->PushFloat(2);
+		layout->PushFloat(1);
 
-		texture->Bind(0);
-		shader->Bind();
-		shader->SetUniformI1("tex", 0);
+		va->AddBuffer(vb, layout);
+	}
+		*/
+
+	~Sandbox() 
+	{
 	}
 
-	~Sandbox() {
-	}
+	void Update() override 
+	{
+		batch_renderer->Clear();
+		batch_renderer->Begin();
+		for (auto rect : rects) {
+			batch_renderer->Attach(*rect);
+		}
+		batch_renderer->Flush();
 
-	void Update() override {
-		renderer->Clear();
-		renderer->Draw(va, ib, shader, 6);
+		//std::cout << "Draw Calls - " << batch_renderer->_GetDrawcallCount() << std::endl;
 	}
 
 };

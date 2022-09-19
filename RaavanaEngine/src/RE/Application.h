@@ -8,6 +8,8 @@
 #include "Event/ApplicationEvent.h"
 #include "Event/MouseEvent.h"
 
+#include "RE/AssetManager/AssetManager.h"
+
 namespace RE {
 
 	class RE_API Application {
@@ -41,6 +43,7 @@ namespace RE {
 
 	private:
 		bool m_Running = false;
+		AssetManager m_AssetManager;
 
 	};
 

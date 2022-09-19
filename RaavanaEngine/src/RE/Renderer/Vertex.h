@@ -1,13 +1,20 @@
 #pragma once
-
-#include "core.h"
-#include "Math/types.h"
-#include "Renderer/VertexBufferLayout.h"
+#include "RE/core.h"
+#include "VertexBufferLayout.h"
 
 namespace RE {
 
-	struct RE_API Vertex {
+	struct Float4 {
+		float x, y, z, w;
+	};
+	struct Float3 {
+		float x, y, z;
+	};
+	struct Float2 {
+		float x, y;
+	};
 
+	struct RE_API Vertex {
 		Float3 Position;
 		Float4 Color;
 		Float2 TexCoord;
@@ -15,8 +22,7 @@ namespace RE {
 
 		static Ref<VertexBufferLayout> GetLayout() {
 
-			auto layout = VertexBufferLayout::Create();
-
+			Ref<VertexBufferLayout> layout = VertexBufferLayout::Create();
 			layout->PushFloat(3);
 			layout->PushFloat(4);
 			layout->PushFloat(2);

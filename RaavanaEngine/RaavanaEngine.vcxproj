@@ -22,13 +22,13 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Windows|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -59,7 +59,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLEW_STATIC;RE_EXPORT_DLL;RE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\RE;vendor;vendor\GLFW\include;vendor\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\RE;vendor;vendor\GLFW\include;vendor\GLEW\include;..\vendor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -80,7 +80,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLEW_STATIC;RE_EXPORT_DLL;RE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;src\RE;vendor;vendor\GLFW\include;vendor\GLEW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;src\RE;vendor;vendor\GLFW\include;vendor\GLEW\include;..\vendor;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -102,6 +102,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\RE\Application.h" />
+    <ClInclude Include="src\RE\AssetManager\AssetManager.h" />
+    <ClInclude Include="src\RE\Drawables\Rect.h" />
     <ClInclude Include="src\RE\EntryPoint.h" />
     <ClInclude Include="src\RE\Event\ApplicationEvent.h" />
     <ClInclude Include="src\RE\Event\Event.h" />
@@ -122,6 +124,7 @@
     <ClInclude Include="src\RE\Platform\windows\WindowsInput.h" />
     <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
     <ClInclude Include="src\RE\Renderer\IndexBuffer.h" />
+    <ClInclude Include="src\RE\Renderer\rect_BatchRenderer.h" />
     <ClInclude Include="src\RE\Renderer\Renderer.h" />
     <ClInclude Include="src\RE\Renderer\Shader.h" />
     <ClInclude Include="src\RE\Renderer\Texture.h" />
@@ -146,6 +149,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RE\Application.cpp" />
+    <ClCompile Include="src\RE\AssetManager\AssetManager.cpp" />
+    <ClCompile Include="src\RE\Drawables\Rect.cpp" />
     <ClCompile Include="src\RE\Event\ApplicationEvent.cpp" />
     <ClCompile Include="src\RE\Event\Event.cpp" />
     <ClCompile Include="src\RE\Event\KeyboardEvent.cpp" />
@@ -162,6 +167,7 @@
     <ClCompile Include="src\RE\Platform\opengl\utils\opengl_VertexBufferLayout.cpp" />
     <ClCompile Include="src\RE\Platform\windows\WindowsInput.cpp" />
     <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\RE\Renderer\rect_BatchRenderer.cpp" />
     <ClCompile Include="src\RE\repch.cpp" />
     <ClCompile Include="vendor\imgui\imgui.cpp" />
     <ClCompile Include="vendor\imgui\imgui_demo.cpp" />

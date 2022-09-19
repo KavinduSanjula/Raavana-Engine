@@ -7,8 +7,9 @@ namespace RE {
 
 	Ref<Renderer> Renderer::Create() { return std::make_shared<OpenglRenderer>(); }
 
-	void OpenglRenderer::Clear() const
+	void OpenglRenderer::Clear(float r, float g, float b, float a) const
 	{
+		glClearColor(r, g, b, a);
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
