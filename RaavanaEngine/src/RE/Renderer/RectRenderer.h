@@ -18,17 +18,34 @@
 
 
 #define MAX_RECT_COUNT 1
-#define MAX_TEXTURE_COUNT 3
+#define MAX_TEXTURE_COUNT 1
 
 
 namespace RE {
 
+	struct BindableTexture {
+		float bind_id;
+		Ref<Texture> texture;
+	};
+
 	class RE_API RectRenderer {
+
+	public:
+		RectRenderer(Ref<Shader> shader);
+
+		void Clear(float r, float g, float b, float a);
+		void BeginBatch();
+		void Submit(const Rect& Rect);
+		void Flush();
+
+	private:
+		void Draw();
+		void GenerateIndeces();
+		void CreateTexture(const Rect& path);
+
 	private:
 
 		int m_SubmitCount = 0;
-		int m_PtrOffset = 0;
-		int m_DrawCallCount = 0;
 		int m_IndexToDraw = 0;
 		float m_TextureID = 1;
 
@@ -41,26 +58,11 @@ namespace RE {
 		Ref<IndexBuffer> m_IB;
 		Ref<Shader> m_Shader;
 		Ref<Renderer> m_Renderer;
+		Ref<Texture> m_WhiteTexture;
 
+		std::unordered_map<uint32_t, BindableTexture> m_TextureMap;
 
-		std::unordered_map<std::string, float> m_TextureMap;
-		std::array<Ref<Texture>, MAX_TEXTURE_COUNT> m_Textures;
-
-
-	public:
-		RectRenderer(Ref<Shader> shader); // Ref<Camera>& camera);
-
-		void BeginBatch();
-		void Submit(const Rect& Rect);
-		void Flush();
-		void Clear();
-
-		inline int GetDrawCallCount() const { return m_DrawCallCount; }
-
-	private:
-		void Draw();
-		void GenerateIndeces();
-		void CreateTexture(const Rect& path);
+		Float4 m_ClearColor = { 0.1,0.1,0.1,1.0 };
 
 	};
 

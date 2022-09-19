@@ -15,7 +15,7 @@ out float v_TexId;
 uniform mat4 u_Proj;
 
 void main() {
-	gl_Position = u_Proj * vec4(a_Pos, 0.0);
+	gl_Position = u_Proj * vec4(a_Pos, 1.0);
 	v_TexCoord = a_TexCoord;
 	v_Color = a_Color;
 	v_TexId = a_TexId;
@@ -36,5 +36,5 @@ uniform sampler2D u_Textures[10];
 
 void main() {
 	vec4 texColor = texture(u_Textures[int(v_TexId)], v_TexCoord);
-	Color = texColor* v_Color;
+	Color = texColor * v_Color;
 }

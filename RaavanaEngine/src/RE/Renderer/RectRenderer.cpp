@@ -19,6 +19,8 @@ namespace RE {
 		m_VB = VertexBuffer::Create(nullptr, MAX_RECT_COUNT * 4 * sizeof(Vertex));
 		m_IB = IndexBuffer::Create(nullptr, MAX_RECT_COUNT * 6);
 
+		m_WhiteTexture = AssetManager::CreateTexture(NO_TEXTURE);
+
 		int texIDs[] = { 0,1,2,3,4,5,6,7,8,9,10 };
 
 		m_Shader->Bind();
@@ -31,21 +33,13 @@ namespace RE {
 
 	void RectRenderer::BeginBatch()
 	{
-		//auto proj = m_Camera->GetViewProjection();
-		auto proj = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f, -1.0f, 1.0f);
-
-		m_Shader->Bind();
-		m_Shader->SetUniformMat4("u_Proj", proj);
-		m_Shader->Unbind();
-
 		m_SubmitCount = 0;
-		m_PtrOffset = 0;
+
 		m_Rects.clear();
+
 		m_TextureID = 1;
 		m_TextureMap.clear();
-
-		m_TextureMap[NO_TEXTURE] = 0;
-		m_Textures[0] = AssetManager::CreateTexture(NO_TEXTURE);
+		m_TextureMap[m_WhiteTexture->GetAssetID()] = { 0.0f, m_WhiteTexture };
 	}
 
 	void RectRenderer::Submit(const Rect& rect)
@@ -71,9 +65,8 @@ namespace RE {
 	void RectRenderer::Flush()
 	{
 
-		for (int i = 0; i < MAX_TEXTURE_COUNT; i++) {
-			if (m_Textures[i])
-				m_Textures[i]->Bind(i);
+		for (auto[uid,b_tex] : m_TextureMap) {
+			b_tex.texture->Bind(b_tex.bind_id);
 		}
 
 		m_IB->SetData(m_Indeces, sizeof(m_Indeces));
@@ -92,16 +85,15 @@ namespace RE {
 		Draw();
 	}
 
-	void RectRenderer::Clear()
+	void RectRenderer::Clear(float r, float g, float b, float a)
 	{
-		m_Renderer->Clear();
-		m_DrawCallCount = 0;
+		m_Renderer->Clear(r,g,b,a);
 	}
 
 	void RectRenderer::Draw()
 	{
+		Clear(m_ClearColor.x, m_ClearColor.y, m_ClearColor.z, m_ClearColor.w);
 		m_Renderer->Draw(m_VA, m_IB, m_Shader, m_IndexToDraw);
-		m_DrawCallCount++;
 	}
 
 	void RectRenderer::GenerateIndeces()
@@ -120,20 +112,18 @@ namespace RE {
 	void RectRenderer::CreateTexture(const Rect& rect)
 	{
 		std::string path = rect.GetTexturePath();
+		Ref<Texture> texture = AssetManager::CreateTexture(path);
+		uint32_t texture_id = texture->GetAssetID();
 
-		if (m_TextureMap.find(path) == m_TextureMap.end()) {
+		if (m_TextureMap.find(texture_id) == m_TextureMap.end()) {
 
-			int tex_id = (int)m_TextureID;
-			m_TextureMap[path] = m_TextureID;
-
-			m_Textures[tex_id] = Texture::Create(path);
-
+			m_TextureMap[texture_id] = { m_TextureID, texture };
 			rect.SetTextureID(m_TextureID);
 			m_TextureID++;
+
 		}
 		else {
-			float texID = m_TextureMap[path];
-			rect.SetTextureID(texID);
+			rect.SetTextureID(m_TextureMap[texture_id].bind_id);
 		}
 	}
 

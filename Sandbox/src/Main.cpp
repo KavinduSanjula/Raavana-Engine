@@ -14,90 +14,71 @@ public:
 	RE::Ref<RE::Texture> texture;
 	RE::Ref<RE::Renderer> renderer;
 
-	RE::RectRenderer* m_Renderer;
-	RE::Rect* m_Rect = nullptr;
 
-	Sandbox() {
-		/*
+	RE::rect_BatchRenderer* batch_renderer;
+	RE::Rect* rect;
+
+
+	Sandbox() 
+	{
+		shader = RE::Shader::Create("res/shaders/texture-shader.shader");
+		batch_renderer = new RE::rect_BatchRenderer(shader);
+		rect = new RE::Rect({ 100, 300 }, { 100, 100 }, "res/images/cover.jpg");
+
+		RE::Rect r2({ 100,100}, { 100,100 }, "res/images/cover.jpg");
+
+		glm::mat4 P = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f);
+		shader->Bind();
+		shader->SetUniformMat4("u_Proj", P);
+		shader->Unbind();
 		
-		float vertices[] = {	
-			-0.5f, -0.5f, 0.0f, 0.0f,
-			 0.5f, -0.5f, 1.0f, 0.0f,
-			 0.5f,  0.5f, 1.0f, 1.0f,
-			-0.5f,  0.5f, 0.0f, 1.0f
+		batch_renderer->Attach(*rect);
+		batch_renderer->Attach(r2);
+
+	}
+
+	/*
+	void CreateShape(float x, float y, float w, float h) 
+	{	
+		float verticies[] = {
+			x,	 y,	 0.0f,  1.0f,0.0f,1.0f,1.0f,  0.0f, 0.0f,  0.0f,
+			x+w, y,	 0.0f,  1.0f,1.0f,1.0f,1.0f,  0.0f, 0.0f,  0.0f,
+			x+w, y+h, 0.0f,  1.0f,1.0f,0.0f,1.0f,  0.0f, 0.0f,  0.0f,
+			x,	 y+h, 0.0f,  0.0f,1.0f,1.0f,1.0f,  0.0f, 0.0f,  0.0f,
 		};
 
-		
+		uint32_t indecies[6] = { 0,1,2,2,3,0 };
 
-		vb = RE::VertexBuffer::Create(vertices, sizeof(vertices));
-		
-
-		auto bl = RE::VertexBufferLayout::Create();
-		bl->PushFloat(2);
-		bl->PushFloat(2);
-		va->AddBuffer(vb, bl);
-		
-
-		renderer = RE::Renderer::Create();
-
-		RE::Rect rect({ -1.0f,-1.0f }, { 1.0f,1.0f }, NO_TEXTURE, {1.0f,0.0f,0.0f,1.0f});
-
-		uint32_t indeces[] = { 0, 1, 2, 2, 3, 0 };
-
-		ib = RE::IndexBuffer::Create(indeces, 6);
-		va = RE::VertexArray::Create();
-
-		va->AddBuffer(rect.GetVertexBuffer(), RE::Vertex::GetLayout());
-
-		shader = RE::Shader::Create("res/shaders/texture-shader.shader");
-		std::cout << "Shader 1 - " << shader->GetAssetID() << std::endl;
-		texture = RE::Texture::Create("res/images/cover.jpg");
-		std::cout << "Texture 1 - " << texture->GetAssetID() << std::endl;
-		texture->Bind(0);
-		shader->Bind();
-		shader->SetUniformI1("tex", 0);
-
-		*/
-
-		glm::mat4 proj = glm::ortho(0,10,0,1);
-		glm::mat4  view = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f));
-		glm::mat4 vp = proj * view;
-
-		m_Rect = new RE::Rect({ 0,0 }, { 1,1 }, NO_TEXTURE, {1.0f, 1.0f,1.0f,1.0f });
-		shader = RE::AssetManager::CreateShader("res/shaders/texture-shader.shader");
-		shader->Bind();
-		shader->SetUniformMat4("u_Proj", vp);
-		shader->Unbind();
-
-		uint32_t indeces[] = { 0, 1, 2, 2, 3, 0 };
+		RE::Rect rect = RE::Rect({ 100,200 }, { 100,100 }, NO_TEXTURE);
+		auto vertex_data = rect.GetVertices();
 
 		RE::Vertex verticies[4];
-
-		auto data = m_Rect->GetVertices();
-
-		memcpy(verticies, data.data(), 4 * sizeof(RE::Vertex));
-
-		vb = RE::VertexBuffer::Create(verticies, 4 * sizeof(RE::Vertex));
-		ib = RE::IndexBuffer::Create(indeces, 6);
-		va = RE::VertexArray::Create();
-
-		va->AddBuffer(vb,RE::Vertex::GetLayout());
+		memcpy(verticies, vertex_data.data(), 4 * sizeof(RE::Vertex));
 
 		renderer = RE::Renderer::Create();
-		auto tex = RE::AssetManager::CreateTexture("res/images/cover.jpg");
-		auto tex2 = RE::AssetManager::CreateTexture(NO_TEXTURE);
-		//tex->Bind(0);
-		tex2->Bind(0);
+		vb = RE::VertexBuffer::Create(verticies, sizeof(verticies));
+		ib = RE::IndexBuffer::Create(indecies, 6);
+		va = RE::VertexArray::Create();
 
+		auto layout = RE::VertexBufferLayout::Create();
+		layout->PushFloat(3);
+		layout->PushFloat(4);
+		layout->PushFloat(2);
+		layout->PushFloat(1);
 
+		va->AddBuffer(vb, layout);
+	}
+		*/
+
+	~Sandbox() 
+	{
 	}
 
-	~Sandbox() {
-		delete m_Rect;
-	}
-
-	void Update() override {
-		renderer->Draw(va, ib, shader, 6);
+	void Update() override 
+	{
+		//batch_renderer->BeginBatch();
+		
+		batch_renderer->Flush();
 	}
 
 };

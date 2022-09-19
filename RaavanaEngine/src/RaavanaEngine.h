@@ -17,7 +17,9 @@
 #include "RE/Renderer/Shader.h"
 #include "RE/Renderer/Texture.h"
 #include "RE/Renderer/VertexBufferLayout.h"
-#include "RE/Renderer/RectRenderer.h"
+
+//#include "RE/Renderer/RectRenderer.h"
+#include "RE/Renderer/rect_BatchRenderer.h"
 
 #include "RE/Drawables/Rect.h"
 

@@ -124,7 +124,7 @@
     <ClInclude Include="src\RE\Platform\windows\WindowsInput.h" />
     <ClInclude Include="src\RE\Platform\windows\WindowsWindow.h" />
     <ClInclude Include="src\RE\Renderer\IndexBuffer.h" />
-    <ClInclude Include="src\RE\Renderer\RectRenderer.h" />
+    <ClInclude Include="src\RE\Renderer\rect_BatchRenderer.h" />
     <ClInclude Include="src\RE\Renderer\Renderer.h" />
     <ClInclude Include="src\RE\Renderer\Shader.h" />
     <ClInclude Include="src\RE\Renderer\Texture.h" />
@@ -167,7 +167,7 @@
     <ClCompile Include="src\RE\Platform\opengl\utils\opengl_VertexBufferLayout.cpp" />
     <ClCompile Include="src\RE\Platform\windows\WindowsInput.cpp" />
     <ClCompile Include="src\RE\Platform\windows\WindowsWindow.cpp" />
-    <ClCompile Include="src\RE\Renderer\RectRenderer.cpp" />
+    <ClCompile Include="src\RE\Renderer\rect_BatchRenderer.cpp" />
     <ClCompile Include="src\RE\repch.cpp" />
     <ClCompile Include="vendor\imgui\imgui.cpp" />
     <ClCompile Include="vendor\imgui\imgui_demo.cpp" />
